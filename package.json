@@ -1,7 +1,7 @@
 {
-  "name": "manhwaindo-api",
+  "name": "manhwa-api",
   "version": "1.0.2",
-  "description": "Manhwaindo.id API",
+  "description": "Manhwa API Templete",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
@@ -14,8 +14,8 @@
     "manhwa",
     "manhwa"
   ],
-  "homepage": "https://github.com/Aerysh/manhwaindo-api",
-  "author": "Ahmad Azwar Annas <ahmadazw2@gmail.com>",
+  "homepage": "https://github.com/virgel1995/manhwa-api",
+  "author": "virus24",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
     "eslint": "^8.24.0",
