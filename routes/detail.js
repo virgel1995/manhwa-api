@@ -2,7 +2,7 @@ const express = require("express");
 const cheerio = require("cheerio");
 const _browser = require("../helpers/puppeteer");
 const router = express.Router();
-const { detail } = require("../helpers/url");
+const { detail, base } = require("../helpers/url");
 
 router.get("/:endpoint", async (req, res) => {
 	try{
@@ -23,7 +23,7 @@ router.get("/:endpoint", async (req, res) => {
 			manhwaGenre.each((idx, el) => {
 				const genre = {name: "", endpoint: ""};
 				genre.name = $(el).text();
-				genre.endpoint = $(el).attr("href").replace("https://manhwaindo.id/genres/", "");
+				genre.endpoint = $(el).attr("href").replace(`${base}/genres/`, "");
 
 				manhwa.genres.push(genre);
 			});
@@ -36,7 +36,7 @@ router.get("/:endpoint", async (req, res) => {
 				const chapter = {name: "", date: "", endpoint: ""};
 				chapter.name = $(el).find(".chbox .eph-num a .chapternum").text();
 				chapter.date = $(el).find(".chbox .eph-num a .chapterdate").text();
-				chapter.endpoint = $(el).find(".chbox .eph-num a").attr("href").replace("https://manhwaindo.id/", "");
+				chapter.endpoint = $(el).find(".chbox .eph-num a").attr("href").replace(`${base}`, "");
 
 				manhwa.chapters.push(chapter);
 			});

@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 		genreList.each((idx, el) => {
 			const genre = {name: "", endpoint: ""};
 			genre.name = $(el).find("a").text();
-			genre.endpoint = $(el).find("a").attr("href").replace("https://manhwaindo.id/genres/", "");
+			genre.endpoint = $(el).find("a").attr("href").replace(`${base}/genres/`, "");
 
 			genres.push(genre);
 		});
@@ -46,7 +46,7 @@ router.get("/:endpoint", async(req, res) => {
 			manhwa.title = $(el).find(".bsx a").attr("title");
 			manhwa.thumbnail = $(el).find(".bsx a .limit img").attr("src"); 
 			manhwa.latest_chapter = $(el).find(".bsx a .bigor .adds .epxs").text();
-			manhwa.endpoint = $(el).find(".bsx a").attr("href").replace("https://manhwaindo.id/series/", "");
+			manhwa.endpoint = $(el).find(".bsx a").attr("href").replace(`${base}/series/`, "");
 
 			manhwas.push(manhwa);
 		});

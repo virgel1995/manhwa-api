@@ -6,7 +6,7 @@
 1. Clone This Repository
 
 ```bash
-git clone https://github.com/Aerysh/manhwaindo-api.git
+git clone https://github.com/virgel1995/manhwa-api.git
 ```
 
 2. Install Required Packages
@@ -56,4 +56,4 @@ All contribution are welcome, but please first discuss the change you wish to ma
 
 ## License
 
-[GPL-3.0-or-later](https://github.com/Aerysh/manhwaindo-api/blob/master/LICENSE)
+[GPL-3.0-or-later](https://github.com/virgel1995/manhwa-api/blob/master/LICENSE)

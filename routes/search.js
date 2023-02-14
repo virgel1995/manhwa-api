@@ -2,7 +2,7 @@ const express = require("express");
 const cheerio = require("cheerio");
 const _browser = require("../helpers/puppeteer");
 const router = express.Router();
-const { search } = require("../helpers/url");
+const { search, base } = require("../helpers/url");
 
 router.get("/:title", async (req, res) => {
 	try{
@@ -19,7 +19,7 @@ router.get("/:title", async (req, res) => {
 			manhwa.title = $(el).find(".bsx a").attr("title");
 			manhwa.thumbnail = $(el).find(".bsx a .limit img").attr("src"); 
 			manhwa.latest_chapter = $(el).find(".bsx a .bigor .adds .epxs").text();
-			manhwa.endpoint = $(el).find(".bsx a").attr("href").replace("https://manhwaindo.id/series/", "");
+			manhwa.endpoint = $(el).find(".bsx a").attr("href").replace(`${base}/series/`, "");
 
 			manhwas.push(manhwa);
 		});

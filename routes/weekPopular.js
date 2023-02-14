@@ -2,7 +2,7 @@ const express = require("express");
 const cheerio = require("cheerio");
 const _browser = require("../helpers/puppeteer");
 const router = express.Router();
-const { all } = require("../helpers/url");
+const { all, base } = require("../helpers/url");
 
 router.get("/", async (req, res) => {
 	try{
@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 			const manhwa = {title: "", thumbnail: "", endpoint: ""};
 			manhwa.title = $(el).find(".leftseries h2").text();
 			manhwa.thumbnail = $(el).find(".imgseries a img").attr("src");
-			manhwa.endpoint = $(el).find(".imgseries a").attr("href").replace("https://manhwaindo.id/series/", "");
+			manhwa.endpoint = $(el).find(".imgseries a").attr("href").replace(`${base}/series/`, "");
 
 			popular.push(manhwa);
 		});

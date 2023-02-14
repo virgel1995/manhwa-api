@@ -20,11 +20,11 @@ router.get("/:endpoint", async (req, res) => {
 			read.prevChapter = $(el).find(".entry-content .chnav .navlef .npv .nextprev .ch-prev-btn")
 				.attr("href")
 				.replace("#/prev/", "-")
-				.replace("https://manhwaindo.id/", "");
+				.replace(`${base}`, "");
 			read.nextChapter = $(el).find(".entry-content .chnav .navlef .npv .nextprev .ch-next-btn")
 				.attr("href")
 				.replace("#/next/", "-")
-				.replace("https://manhwaindo.id/", "");
+				.replace(`${base}`, "");
 			const chapterImage = $(".entry-content #readerarea img");
 			chapterImage.each((idx, el) => {
 				const image = {index: "", url: ""};
